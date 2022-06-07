@@ -1,0 +1,113 @@
+body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: Lato, sans-serif;
+    color: #333333;
+}
+
+/* SMARTPHONES */
+
+.container {
+    padding: 10px 2%;
+    padding-bottom: 0;
+    box-sizing: border-box;
+}
+
+.cabecalho {
+    width: 100%;
+    background-color: #E0E0E0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecalho h1 {
+    font-size: 20px;
+}
+
+.cabecalho img {
+    height: 30px;
+}
+
+.cabecalho a {
+    padding: 0;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+.nova-transacao {
+    position: relative;
+}
+
+.nova-transacao::after {
+    content: '';
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    margin: 0 auto;
+    width: 96%;
+    height: 1px;
+    background-color: #979797;
+}
+
+.linha-input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.linha-input label {
+    margin-bottom: 10px;
+}
+
+.linha-input input,
+select {
+    border-radius: 4px;
+    border: 1px solid #979797;
+    padding: 5px 15px;
+}
+
+#adicionar {
+    border-radius: 4px;
+    width: 100%;
+    background-color: #333333;
+    color: #fff;
+    height: 32px;
+    margin-bottom: 30px;
+}
+
+.extrato {
+    margin-top: 10px;
+}
+
+.extrato h3 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.cabecalho-extrato {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 8px;
+    background-color: #000;
+    width: 100%;
+}
