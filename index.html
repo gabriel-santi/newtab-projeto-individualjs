@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Orbitron:wght@400;500;600;700;800&family=Playfair+Display&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Controle financeiro</title>
+</head>
+
+<body>
+    <header class="container cabecalho">
+        <img src="./assets/img/Logo.png" alt="Logo">
+        <h1>Controle financeiro</h1>
+        <button>
+            <img src="./assets/img/menu.png" alt="Icone de menu">
+        </button>
+    </header>
+
+    <form class="container nova-transacao">
+        <label for="tipo">Tipo de transação</label>
+        <select name="tipo" id="tipo-transacao" required>
+            <option value="compra" selected>Compra</option>
+            <option value="venda">Venda</option>
+        </select>
+
+        <label for="nome">Nome da mercadoria</label>
+        <input type="text" name="nome" placeholder="Input" required>
+
+        <label for="Valor">Valor</label>
+        <input type="number" required>
+
+        <input type="submit" value="Adicionar transação">
+    </form>
+
+    <section class="container extrato">
+        <div class="cabecalho-extrato">
+            <h5>
+                Mercadoria
+            </h5>
+
+            <h5>
+                Valor
+            </h5>
+        </div>
+
+        <div class="transacoes">
+            <h5>
+                Nenhuma transação cadastrada.
+            </h5>
+        </div>
+
+        <div class="valor-total">
+            <h5>
+                Total
+            </h5>
+
+            <h5>
+                R$0,00
+            </h5>
+        </div>
+    </section>
+
+    <footer></footer>
+</body>
+
+</html>
