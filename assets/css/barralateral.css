@@ -33,6 +33,6 @@ nav a {
 }
 
 nav a:nth-child(n+2):hover {
-    background-color: #fff;
+    background-color: #C4C4C4;
     color: #333333;
 }

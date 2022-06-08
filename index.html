@@ -11,107 +11,129 @@
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Orbitron:wght@400;500;600;700;800&family=Playfair+Display&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsivo.css">
     <title>Controle financeiro</title>
 </head>
 
 <body>
-    <header class="container cabecalho">
-        <img src="./assets/img/Logo.png" alt="Logo">
-        <h1>Controle financeiro</h1>
-        <a href="./assets/src/navigationactive.html">
-            <img src="./assets/img/menu.png" alt="Icone de menu">
-        </a>
+    <header class="fundo-cinza">
+        <div class="container cabecalho">
+            <div class="logo-wrapper">
+                <img src="./assets/img/Logo.png" alt="Logo">
+
+                <h1>Controle financeiro</h1>
+
+                <!-- APARECE EM TELAS MENORES -->
+                <a class="menu-icon" href="./assets/src/navigationactive.html">
+                    <img src="./assets/img/menu.png" alt="Ícone de menu">
+                </a>
+            </div>
+
+            <!-- APARECE EM TELAS MAIORES -->
+            <nav class="opcoes">
+                <a href="#">Cadastro de transações</a>
+                <a href="#">Limpar dados</a>
+            </nav>
+        </div>
     </header>
 
-    <form class="container nova-transacao">
-        <div class="linha-input">
-            <label for="tipo">Tipo de transação</label>
-            <select name="tipo" id="tipo-transacao" required>
-                <option value="compra" selected>Compra</option>
-                <option value="venda">Venda</option>
-            </select>
-        </div>
+    <div class="conteudo">
 
-        <div class="linha-input">
-            <label for="nome">Nome da mercadoria</label>
-            <input type="text" name="nome" placeholder="Input" required>
-        </div>
+        <form class="container nova-transacao">
+            <h3>Nova transação</h3>
 
-        <div class="linha-input">
-            <label for="Valor">Valor</label>
-            <input type="number" placeholder="R$0,00" required>
-        </div>
+            <div class="linha-inputs">
+                <div class="input-wrapper input-tipo">
+                    <label for="tipo">Tipo de transação</label>
+                    <select name="tipo" id="tipo-transacao" required>
+                        <option value="compra" selected>Compra</option>
+                        <option value="venda">Venda</option>
+                    </select>
+                </div>
 
-        <div class="linha-input">
-            <input type="submit" id="adicionar" value="Adicionar transação">
-        </div>
-    </form>
+                <div class="input-wrapper input-nome">
+                    <label for="nome">Nome da mercadoria</label>
+                    <input type="text" name="nome" placeholder="Input" required>
+                </div>
 
-    <section class="container extrato">
-        <h3>Extrato de transações</h3>
-        <div class="cabecalho-extrato">
-            <h5>
-                Mercadoria
-            </h5>
-
-            <h5>
-                Valor
-            </h5>
-        </div>
-
-        <div class="transacoes">
-            <div class="transacao">
-                <p class="transacao-tipo">
-                    +
-                </p>
-                <p class="transacao-nome">
-                    Lorem ipsum dolor sit amet consectetur
-                </p>
-                <p class="transacao-valor">
-                    R$12.999,00
-                </p>
+                <div class="input-wrapper input-valor">
+                    <label for="Valor">Valor</label>
+                    <input type="number" placeholder="R$0,00" required>
+                </div>
             </div>
 
-            <div class="transacao">
-                <p class="transacao-tipo">
-                    -
-                </p>
-                <p class="transacao-nome">
-                    Quis nostrud exercitation
-                </p>
-                <p class="transacao-valor">
-                    R$99,99
-                </p>
+            <div class="input-wrapper">
+                <input type="submit" id="adicionar" value="Adicionar transação">
+            </div>
+        </form>
+
+
+        <section class="container extrato">
+            <h3>Extrato de transações</h3>
+            <div class="cabecalho-extrato">
+                <h5>
+                    Mercadoria
+                </h5>
+
+                <h5>
+                    Valor
+                </h5>
             </div>
 
-            <div class="transacao">
-                <p class="transacao-tipo">
-                    +
-                </p>
-                <p class="transacao-nome">
-                    Lorem ipsum
-                </p>
-                <p class="transacao-valor">
-                    R$9,99
-                </p>
-            </div>
-        </div>
+            <div class="transacoes">
+                <div class="transacao">
+                    <p class="transacao-tipo">
+                        +
+                    </p>
+                    <p class="transacao-nome">
+                        Lorem ipsum dolor sit amet consectetur
+                    </p>
+                    <p class="transacao-valor">
+                        R$12.999,00
+                    </p>
+                </div>
 
-        <div class="valor-total-container">
-            <p>
-                Total
-            </p>
+                <div class="transacao">
+                    <p class="transacao-tipo">
+                        -
+                    </p>
+                    <p class="transacao-nome">
+                        Quis nostrud exercitation
+                    </p>
+                    <p class="transacao-valor">
+                        R$99,99
+                    </p>
+                </div>
 
-            <div class="valor-wrapper">
-                <p class="valor-total">
-                    R$ 12.909,99
-                </p>
-                <p class="situacao">
-                    [Lucro]
-                </p>
+                <div class="transacao">
+                    <p class="transacao-tipo">
+                        +
+                    </p>
+                    <p class="transacao-nome">
+                        Lorem ipsum
+                    </p>
+                    <p class="transacao-valor">
+                        R$9,99
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+
+            <div class="valor-total-container">
+                <p>
+                    Total
+                </p>
+
+                <div class="valor-wrapper">
+                    <p class="valor-total">
+                        R$ 12.909,99
+                    </p>
+                    <p class="situacao">
+                        [Lucro]
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer></footer>
 </body>
