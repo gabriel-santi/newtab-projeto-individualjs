@@ -1,4 +1,4 @@
-nav {
+.navBar {
     box-sizing: border-box;
 
     z-index: 1;
@@ -12,19 +12,22 @@ nav {
 
     background-color: #333333;
 
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
-nav * {
+.navBar * {
     color: #fff;
 }
 
-nav a:nth-child(1) {
-    text-align: start;
+#fecharNav {
+    margin: 20px;
+    background-image: url('../img/close.png');
+    background-position: left;
+    background-repeat: no-repeat;
 }
 
-nav a {
+.navBar a {
     font-size: 16px;
     font-weight: 600;
     padding: 20px;
@@ -32,7 +35,7 @@ nav a {
     text-decoration: none;
 }
 
-nav a:nth-child(n+2):hover {
+.navBar a:nth-child(n+2):hover {
     background-color: #C4C4C4;
     color: #333333;
 }

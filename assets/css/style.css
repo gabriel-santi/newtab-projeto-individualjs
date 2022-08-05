@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    position: relative;
 }
 
 * {
@@ -27,14 +28,18 @@ p {
 .container {
     box-sizing: border-box;
 
-    padding: 10px 2%;
+    padding: 10px 5%;
     margin: 0 auto;
-    max-width: 1100px;
 }
 
 .cabecalho {
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 10px 10%;
+
     background-color: #E0E0E0;
-    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -61,11 +66,17 @@ p {
     height: 30px;
 }
 
-.cabecalho a {
+.cabecalho button {
+    cursor: pointer;
+    width: 100%;
     padding: 0;
     height: 30px;
     border: none;
     background-color: transparent;
+}
+
+.cabecalho button:first-child {
+    border-right: 1px solid black;
 }
 
 .conteudo {
@@ -75,13 +86,14 @@ p {
 
 .nova-transacao {
     position: relative;
+    height: fit-content;
 }
 
 .nova-transacao h3 {
     display: none;
 }
 
-.nova-transacao::after {
+.nova-transacao::before {
     content: '';
 
     position: absolute;
@@ -119,6 +131,7 @@ select {
     height: 32px;
     margin-bottom: 30px;
 
+    border: none;
     border-radius: 4px;
     background-color: #333333;
     color: #fff;
@@ -171,6 +184,13 @@ select {
 .transacoes {
     display: flex;
     flex-direction: column;
+    max-height: 40vh;
+    overflow-y: scroll;
+}
+
+.alerta-transacao {
+    margin: 50px;
+    color: #979797;
 }
 
 .transacao {
@@ -251,6 +271,54 @@ select {
 
 .situacao {
     font-weight: 400;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.mensagem {
+    margin: 0 auto;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #E0E0E0;
+}
+
+.mensagem div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 300px;
+}
+
+.mensagem button {
+    padding: 10px 20px;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 14px;
+}
+
+#confirmar {
+    background-color: blue;
+}
+
+#cancelar {
+    background-color: red;
 }
 
 footer {

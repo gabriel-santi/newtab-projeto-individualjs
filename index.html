@@ -12,27 +12,36 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsivo.css">
+    <link rel="stylesheet" href="./assets/css/barralateral.css">
     <title>Controle financeiro</title>
 </head>
 
 <body>
     <header class="fundo-cinza">
-        <div class="container cabecalho">
+        <div class="cabecalho">
             <div class="logo-wrapper">
                 <img src="./assets/img/Logo.png" alt="Logo">
 
                 <h1>Controle financeiro</h1>
 
                 <!-- APARECE EM TELAS MENORES -->
-                <a class="menu-icon" href="./assets/src/navigationactive.html">
+                <a class="menu-icon" id="abrirNav" href="#">
                     <img src="./assets/img/menu.png" alt="Ícone de menu">
                 </a>
+
+                <!-- MENU DE NAVEGAÇÃO ESCONDIDO -->
+                <nav class="navBar">
+                    <button id="fecharNav">
+                    </button>
+                    <a data-js="cadastrar">Cadastro de transações</a>
+                    <a data-js="limparDados">Limpar dados</a>
+                </nav>
             </div>
 
             <!-- APARECE EM TELAS MAIORES -->
             <nav class="opcoes">
-                <a href="#">Cadastro de transações</a>
-                <a href="#">Limpar dados</a>
+                <button data-js="cadastrar">Cadastro de transações</button>
+                <button data-js="limparDados">Limpar dados</button>
             </nav>
         </div>
     </header>
@@ -53,17 +62,17 @@
 
                 <div class="input-wrapper input-nome">
                     <label for="nome">Nome da mercadoria</label>
-                    <input type="text" name="nome" placeholder="Input" required>
+                    <input type="text" id="nome" name="nome" required>
                 </div>
 
                 <div class="input-wrapper input-valor">
                     <label for="Valor">Valor</label>
-                    <input type="number" placeholder="R$0,00" required>
+                    <input id="valor" placeholder="R$0,00" onkeypress="mascaraValor(event)" required>
                 </div>
             </div>
 
             <div class="input-wrapper">
-                <input type="submit" id="adicionar" value="Adicionar transação">
+                <button id="adicionar">Adicionar transação</button>
             </div>
         </form>
 
@@ -81,41 +90,6 @@
             </div>
 
             <div class="transacoes">
-                <div class="transacao">
-                    <p class="transacao-tipo">
-                        +
-                    </p>
-                    <p class="transacao-nome">
-                        Lorem ipsum dolor sit amet consectetur
-                    </p>
-                    <p class="transacao-valor">
-                        R$12.999,00
-                    </p>
-                </div>
-
-                <div class="transacao">
-                    <p class="transacao-tipo">
-                        -
-                    </p>
-                    <p class="transacao-nome">
-                        Quis nostrud exercitation
-                    </p>
-                    <p class="transacao-valor">
-                        R$99,99
-                    </p>
-                </div>
-
-                <div class="transacao">
-                    <p class="transacao-tipo">
-                        +
-                    </p>
-                    <p class="transacao-nome">
-                        Lorem ipsum
-                    </p>
-                    <p class="transacao-valor">
-                        R$9,99
-                    </p>
-                </div>
             </div>
 
             <div class="valor-total-container">
@@ -125,17 +99,33 @@
 
                 <div class="valor-wrapper">
                     <p class="valor-total">
-                        R$ 12.909,99
+                        R$ 0,00
                     </p>
                     <p class="situacao">
-                        [Lucro]
+
                     </p>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- ESCONDIDO -->
+    <div class="overlay">
+        <div class="container mensagem">
+            <h3>
+                Deseja apagar <span>todos</span> os dados salvos?
+            </h3>
+            <div>
+                <button id="cancelar">Cancelar</button>
+                <button id="confirmar">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
     <footer></footer>
+
+    <script src="./assets/js/interface.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
