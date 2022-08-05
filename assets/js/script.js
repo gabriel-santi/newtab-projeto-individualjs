@@ -1,19 +1,3 @@
-/* {tipo: "compra", nome: "ww", valor: 20.2}
-1: {tipo: "compra", nome: "1aaa", valor: 32.43}
-2: {tipo: "compra", nome: "a", valor: 0.43}
-3: {tipo: "venda", nome: "b", valor: 0.06}
-4: {tipo: "compra", nome: "e", valor: 221.1}
-5: {tipo: "compra", nome: "as", valor: 2.32}
-6: {tipo: "compra", nome: "s", valor: 2.21}
-7: {tipo: "compra", nome: "ddd", valor: 1.11}
-8: {tipo: "compra", nome: "ds", valor: 1.11}
-9: {tipo: "compra", nome: "2323", valor: 32.32}
-10: {tipo: "compra", nome: "teste", valor: 2.22}
-11: {tipo: "compra", nome: "teste", valor: 2.22}
-12: {tipo: "compra", nome: "teste", valor: 22.22}
-13: {tipo: "compra", nome: "teste", valor: 3.12}
-14: {tipo: "compra", nome: "teste", valor: 12.12}
-15: {tipo: "compra", nome: "teste", valor: 1.11} */
 let transacoes = [];
 let transacoesSalvas = localStorage.getItem('transacoes');
 if (transacoesSalvas != null) {

@@ -51,6 +51,3 @@ btnAbrirNav.addEventListener('click', abrirNavbar);
 
 const btnFecharNav = document.querySelector('#fecharNav');
 btnFecharNav.addEventListener('click', fecharNavbar);
-
-const x = document.querySelector("[data-js = 'linha']");
-console.log(x);
