@@ -1,5 +1,7 @@
 function nenhumDado() {
-    document.querySelector('.transacoes').innerHTML = '<h3 class="alerta-transacao">Nenhuma transação cadastrada</h3>'
+    document.querySelector('.transacoes').innerHTML = '<h3 class="alerta-transacao">Nenhuma transação cadastrada</h3>';
+    document.querySelector('.valor-total').innerHTML = 'R$0,00';
+    document.querySelector('.situacao').innerHTML = '';
 }
 
 function limparCampos() {
@@ -8,8 +10,7 @@ function limparCampos() {
 }
 
 function mostrarOverlay() {
-    const elementoOverlay = document.querySelector('.overlay');
-    elementoOverlay.style.display = 'block';
+    document.querySelector('.overlay').style.display = 'block';
 }
 
 function fecharOverlay() {
@@ -17,37 +18,24 @@ function fecharOverlay() {
 }
 
 function abrirNavbar() {
-    document.querySelector('nav').style.display = 'flex';
+    document.querySelector('.navBar').style.display = 'flex';
 }
 
 function fecharNavbar() {
-    document.querySelector('nav').style.display = 'none';
+    if (window.innerWidth < 1024) {
+        document.querySelector('.navBar').style.display = 'none';
+    }
 }
 
-const btnsCadastrar = document.querySelectorAll("[data-js='cadastrar']");
-btnsCadastrar.forEach(botao => {
-    botao.addEventListener('click', () => {
-        fecharNavbar();
-        document.querySelector('#nome').focus();
-    })
+const btnLimparDados = document.querySelector("#limparDados");
+btnLimparDados.addEventListener('click', () => {
+    mostrarOverlay();
+    fecharNavbar();
 })
 
-const btnsLimparDados = document.querySelectorAll("[data-js='limparDados']");
-btnsLimparDados.forEach(botao => {
-    botao.addEventListener('click', () => {
-        mostrarOverlay();
-        fecharNavbar();
-    });
+
+const btnCadastrar = document.querySelector("#cadastrar");
+btnCadastrar.addEventListener('click', () => {
+    document.querySelector('#nome').focus();
+    fecharNavbar();
 })
-
-const btnFecharOverlay = document.querySelector('#cancelar');
-btnFecharOverlay.addEventListener('click', fecharOverlay);
-
-const overlay = document.querySelector('.overlay');
-overlay.addEventListener('click', fecharOverlay);
-
-const btnAbrirNav = document.querySelector('#abrirNav');
-btnAbrirNav.addEventListener('click', abrirNavbar);
-
-const btnFecharNav = document.querySelector('#fecharNav');
-btnFecharNav.addEventListener('click', fecharNavbar);

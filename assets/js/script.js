@@ -20,9 +20,22 @@ function limparDados() {
 function renderizarTransacoes() {
     const elementoTransacoes = document.querySelector('.transacoes');
     elementoTransacoes.innerHTML = '';
+    let valorTotal = 0;
 
-    //Preenchendo os extratos
+    if (transacoes.length == 0) {
+        nenhumDado();
+        return false;
+    }
+
+    //Percorrendo as transacoes 
     transacoes.forEach(({ tipo, nome, valor }) => {
+        if (tipo == 'compra') {
+            valorTotal += parseFloat(valor);
+        } else {
+            valorTotal -= parseFloat(valor);
+        }
+
+        //Criando um elemento html para cada transacao
         elementoTransacoes.innerHTML += `
         <div class="transacao">
             <p class="transacao-tipo">
@@ -32,48 +45,40 @@ function renderizarTransacoes() {
                 ${nome}
             </p>
             <p class="transacao-valor">
-                R$${valor.toString().replace('.', ',')}
+                R$${valor.toLocaleString("pt-br", { minimumFractionDigits: 2 })}
             </p>
         </div>
         `
-    })
+    });
+
+    valorTotal = valorTotal.toFixed(2);
+    renderizarTotal(parseFloat(valorTotal));
 }
 
-function renderizarTotal() {
-    let valorTotal = 0;
-    transacoes.forEach(({ tipo, valor }) => {
-        if (tipo == 'compra') {
-            valorTotal += parseFloat(valor);
-        } else {
-            valorTotal -= parseFloat(valor);
-        }
-    })
-    valorTotal = valorTotal.toFixed(2);
-
+function renderizarTotal(valor) {
     const elementoTotal = document.querySelector('.valor-total');
-    elementoTotal.innerHTML = `R$${valorTotal.toString().replace('.', ',')}`;
+    elementoTotal.innerHTML = `R$ ${valor.toLocaleString("pt-br", { minimumFractionDigits: 2 })}`;
 
     const elementoSituacao = document.querySelector('.situacao');
-    if (valorTotal > 0) {
-        elementoSituacao.innerHTML = 'LUCRO';
+    if (valor > 0) {
+        elementoSituacao.innerHTML = '[LUCRO]';
         elementoSituacao.style.color = 'green';
-    } else if (valorTotal < 0) {
-        elementoSituacao.innerHTML = 'PREJUÍZO';
+    } else if (valor < 0) {
+        elementoSituacao.innerHTML = '[PREJUÍZO]';
         elementoSituacao.style.color = 'red';
     }
     else {
-        elementoSituacao.innerHTML = 'NEUTRO';
-        elementoSituacao.style.color = 'grey';
+        elementoSituacao.innerHTML = '';
     }
 }
 
 function exibirDados() {
     renderizarTransacoes();
-    renderizarTotal();
 }
 
 function validarInputs(e) {
     e.preventDefault();
+
     let nome = document.getElementById('nome').value;
     let valor = document.getElementById('valor').value;
     let tipo;
@@ -88,12 +93,12 @@ function validarInputs(e) {
         alert('Digite um nome válido!');
         return false;
     }
-    else if (valor.length < 4) {
-        alert('O valor deve conter pelo menos três números!');
+    else if (isNaN(valor) || valor.length == 0) {
+        alert('Digite um valor numérico no campo valor!');
         return false;
     }
     else {
-        transacoes.push({ tipo, nome, valor: parseFloat(valor.replace(',', '.')) });
+        transacoes.push({ tipo, nome, valor: parseFloat(valor) });
         salvar();
         exibirDados();
         limparCampos();
@@ -107,11 +112,11 @@ function mascaraValor(e) {
     const valorPattern = /[0-9]/g
 
     if (valorPattern.test(e.key)) {
-        elementoInput.value = e.key + elementoInput.value;
-
         if (elementoInput.value.length == 2) {
-            elementoInput.value = ',' + elementoInput.value;
+            elementoInput.value = '.' + elementoInput.value;
         }
+
+        elementoInput.value = e.key + elementoInput.value;
     }
 }
 

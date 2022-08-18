@@ -19,6 +19,10 @@ p {
     padding: 0;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* SMARTPHONES */
 .fundo-cinza {
     background-color: #E0E0E0;
@@ -28,18 +32,12 @@ p {
 .container {
     box-sizing: border-box;
 
-    padding: 10px 5%;
+    max-width: 1100px;
+    padding: 20px 15px;
     margin: 0 auto;
 }
 
 .cabecalho {
-    max-width: 1100px;
-
-    margin: 0 auto;
-    padding: 10px 10%;
-
-    background-color: #E0E0E0;
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -47,15 +45,12 @@ p {
 }
 
 .logo-wrapper {
-    width: 100%;
+    width: fit-content;
     display: flex;
     flex-direction: row;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
-}
-
-.opcoes {
-    display: none;
 }
 
 .cabecalho h1 {
@@ -64,19 +59,6 @@ p {
 
 .cabecalho img {
     height: 30px;
-}
-
-.cabecalho button {
-    cursor: pointer;
-    width: 100%;
-    padding: 0;
-    height: 30px;
-    border: none;
-    background-color: transparent;
-}
-
-.cabecalho button:first-child {
-    border-right: 1px solid black;
 }
 
 .conteudo {
@@ -156,7 +138,7 @@ select {
     justify-content: space-between;
 
     margin-top: 10px;
-    padding: 8px 5%;
+    padding: 8px 20px 8px 40px;
 
     position: relative;
 }
@@ -175,7 +157,6 @@ select {
 
 .cabecalho-extrato h5 {
     text-align: center;
-    width: 25%;
     display: inline-block;
     font-size: 14px;
     font-weight: bolder;
@@ -188,6 +169,10 @@ select {
     overflow-y: scroll;
 }
 
+.transacoes::-webkit-scrollbar {
+    display: none;
+}
+
 .alerta-transacao {
     margin: 50px;
     color: #979797;
@@ -197,7 +182,7 @@ select {
     display: flex;
     flex-direction: row;
     position: relative;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .transacao::after {
@@ -213,7 +198,8 @@ select {
 }
 
 .transacao-tipo {
-    width: 5%;
+    margin-right: 10px;
+    width: 10px;
 }
 
 .transacao-nome {
@@ -221,7 +207,7 @@ select {
 }
 
 .transacao-valor {
-    width: 30%;
+    width: 35%;
     text-align: end;
     word-break: break-all;
 }
@@ -231,7 +217,7 @@ select {
 
     margin-top: 2px;
     margin-bottom: 40px;
-    padding: 10px;
+    padding: 10px 20px 10px 40px;
 
     display: flex;
     flex-direction: row;
@@ -253,7 +239,6 @@ select {
 
 .valor-total-container>p {
     width: 25%;
-    padding-left: 5%;
     font-weight: bolder;
 }
 
@@ -268,9 +253,9 @@ select {
     font-weight: bolder;
 }
 
-
 .situacao {
     font-weight: 400;
+    font-size: 12px;
 }
 
 .overlay {

@@ -2,7 +2,6 @@
 @media screen and (min-width: 768px) {
     .nova-transacao {
         padding: 20px;
-        margin: 20px 2%;
         display: flex;
         flex-direction: column;
     }
@@ -54,11 +53,6 @@
         border: 1px solid #979797;
         background-color: transparent;
     }
-
-    nav {
-        width: 30%;
-    }
-
 }
 
 /* MODO PAISAGEM */
@@ -72,43 +66,11 @@
         gap: 20px;
     }
 
-
-    .opcoes {
-        width: 49%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: #fff;
-    }
-
-    .opcoes a {
-        position: relative;
-
-        padding: 5px 10px 0 20px;
-
-        text-decoration: none;
-        font-weight: bolder;
-        font-size: 14px;
-    }
-
-    .opcoes a:nth-child(1)::after {
-        content: '';
-
-        position: absolute;
-        right: 0;
-        bottom: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-
-        height: 60%;
-        width: 1px;
-        background-color: #979797;
-    }
-
     .conteudo {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        gap: 20px;
     }
 
     .nova-transacao {
@@ -130,10 +92,12 @@
         width: 60%;
 
         margin: 0;
-        margin-top: 40px;
-
-        padding: 0;
-        padding-right: 2%;
+        padding: 20px 0;
     }
+}
 
+@media screen and (min-width: 1024px) {
+    .menu-icon {
+        display: none;
+    }
 }

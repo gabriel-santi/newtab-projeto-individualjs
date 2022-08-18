@@ -18,37 +18,32 @@
 
 <body>
     <header class="fundo-cinza">
-        <div class="cabecalho">
+        <div class="container cabecalho">
             <div class="logo-wrapper">
                 <img src="./assets/img/Logo.png" alt="Logo">
 
                 <h1>Controle financeiro</h1>
-
-                <!-- APARECE EM TELAS MENORES -->
-                <a class="menu-icon" id="abrirNav" href="#">
-                    <img src="./assets/img/menu.png" alt="Ícone de menu">
-                </a>
-
-                <!-- MENU DE NAVEGAÇÃO ESCONDIDO -->
-                <nav class="navBar">
-                    <button id="fecharNav">
-                    </button>
-                    <a data-js="cadastrar">Cadastro de transações</a>
-                    <a data-js="limparDados">Limpar dados</a>
-                </nav>
             </div>
 
-            <!-- APARECE EM TELAS MAIORES -->
-            <nav class="opcoes">
-                <button data-js="cadastrar">Cadastro de transações</button>
-                <button data-js="limparDados">Limpar dados</button>
+            <!-- APARECE EM TELAS MENORES -->
+            <a class="menu-icon" id="abrirNav" href="#" onclick="abrirNavbar()">
+                <img src="./assets/img/menu.png" alt="Ícone de menu">
+            </a>
+
+            <nav class="navBar">
+                <!-- APARECE EM TELAS MENORES NO MENU HAMBURGUER -->
+                <button id="fecharNav" onclick="fecharNavbar()">
+                </button>
+                <a id="cadastrar">Cadastro de
+                    transações</a>
+                <a id="limparDados">Limpar dados</a>
             </nav>
         </div>
     </header>
 
-    <div class="conteudo">
-
-        <form class="container nova-transacao">
+    <div class="container conteudo">
+        <!-- NOVA TRANSAÇÃO  -->
+        <form class="nova-transacao">
             <h3>Nova transação</h3>
 
             <div class="linha-inputs">
@@ -76,8 +71,8 @@
             </div>
         </form>
 
-
-        <section class="container extrato">
+        <!-- EXTRATOS -->
+        <section class="extrato">
             <h3>Extrato de transações</h3>
             <div class="cabecalho-extrato">
                 <h5>
@@ -110,14 +105,14 @@
     </div>
 
     <!-- ESCONDIDO -->
-    <div class="overlay">
+    <div class="overlay" onclick="fecharOverlay()">
         <div class="container mensagem">
             <h3>
                 Deseja apagar <span>todos</span> os dados salvos?
             </h3>
             <div>
-                <button id="cancelar">Cancelar</button>
-                <button id="confirmar">Confirmar</button>
+                <button id="cancelar" onclick="fecharOverlay()">Cancelar</button>
+                <button id="confirmar" onclick="fecharOverlay()">Confirmar</button>
             </div>
         </div>
     </div>
