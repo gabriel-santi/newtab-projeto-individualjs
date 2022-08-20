@@ -80,7 +80,7 @@ function validarInputs(e) {
     e.preventDefault();
 
     let nome = document.getElementById('nome').value;
-    let valor = document.getElementById('valor').value;
+    let valor = document.getElementById('valor').value.replace(',', '.');
     let tipo;
 
     if (document.getElementById('tipo-transacao').selectedIndex == 0) {
@@ -90,7 +90,7 @@ function validarInputs(e) {
     }
 
     if (nome.length == 0) {
-        alert('Digite um nome válido!');
+        alert('Digite um nome válido para a transação!');
         return false;
     }
     else if (isNaN(valor) || valor.length == 0) {
@@ -109,14 +109,29 @@ function mascaraValor(e) {
     e.preventDefault();
 
     const elementoInput = e.target;
-    const valorPattern = /[0-9]/g
+    const valoresAceitos = /[0-9]/g
 
-    if (valorPattern.test(e.key)) {
-        if (elementoInput.value.length == 2) {
-            elementoInput.value = '.' + elementoInput.value;
+    if (valoresAceitos.test(e.key)) {
+        let valor = elementoInput.value;
+
+        if (valor.length == 2) {
+            elementoInput.value += ',';
         }
 
-        elementoInput.value = e.key + elementoInput.value;
+        //procurando os 2 ultimos digitos com Regex para colocar a virgula e deixa-los como decimais
+        if (valor.length > 2) {
+            valor = valor.replace(',', '');
+
+            /* Aqui a regex retorna duas expressoes:
+            a primeira vai retornar todos os digitos ate os dois ultimos, a segunda retorna somente os dois ultimos */
+            let regex = /(^[0-9]+)([0-9]{1}$)/
+
+            /* Colocando a virgula da casa decimal entre as duas expressoes*/
+            valor = valor.replace(regex, "$1,$2");
+            elementoInput.value = valor;
+        }
+
+        elementoInput.value += e.key;
     }
 }
 
